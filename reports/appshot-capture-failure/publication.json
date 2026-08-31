@@ -1,0 +1,802 @@
+{
+  "schema_version": 1,
+  "id": "97c0c633-d01f-5023-9868-f2939ac39ebd",
+  "identity": "https://github.com/Anionix/codex_copy/blob/codex/appshot-capture-report-20260901/reports/appshot-capture-failure/comment.md",
+  "title": "Appshot capture-start failures for Chrome with successful comparison applications",
+  "language": "en",
+  "recorded_at": "2026-08-31T16:06:04.724Z",
+  "machine_contract": {
+    "identity": "UUID version 5, URL namespace; observation names use their timestamp and target.",
+    "events": "UUID version 7 for the time each review or publication event was recorded.",
+    "state_transitions": [
+      "reviewed",
+      "published",
+      "verified"
+    ],
+    "verification_meaning": "GitHub comment body was read back exactly. It does not confirm root cause, a fix, or shared cause with the closed issue.",
+    "revision_transition": "verified -> reviewed when new evidence changes the same comment; then publish and verify again.",
+    "validation_command": "python3 validate.py publication.json comment.md"
+  },
+  "sources": [
+    {
+      "id": "e467b3fc-ebc4-54c6-8192-00871d5a75c0",
+      "name": "Contribution policy",
+      "location": "https://github.com/openai/codex/blob/main/docs/contributing.md",
+      "kind": "official_document",
+      "git_blob_sha": "67b10a1c9b855bc32082929129b5abbe3c1d7b35",
+      "supports": "Add new diagnostic information to an existing report; remove sensitive data."
+    },
+    {
+      "id": "937ea9a9-19f9-5c7d-9287-4659290444d3",
+      "name": "Expected Appshot behavior",
+      "location": "https://learn.chatgpt.com/docs/appshots",
+      "kind": "official_document",
+      "supports": "Capture the frontmost application window image and available text."
+    },
+    {
+      "id": "28f5ee04-6a75-519b-a4c3-6a1cf1e6682e",
+      "name": "Related report",
+      "location": "https://github.com/openai/codex/issues/36241",
+      "kind": "public_issue",
+      "state_at_review": "closed",
+      "locked_at_review": false,
+      "comments_before_publication": 0,
+      "supports": "Same capture-start error; original target Slack differs."
+    },
+    {
+      "id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "name": "Desktop capture records",
+      "location": "urn:local:codex-appshot:2026-08-31:desktop-main-log",
+      "kind": "local_observation",
+      "public_contents": "Allowlisted capture fields only; request identifiers and application content omitted."
+    },
+    {
+      "id": "f563f519-df0b-579c-a78a-3791542b0449",
+      "name": "Native capture worker error",
+      "location": "urn:local:codex-appshot:2026-08-31:155553-worker",
+      "kind": "local_observation",
+      "observed_at": "2026-08-31T15:55:53.548Z",
+      "error": "Codex Computer Use Apple Event error -10005: noWindowsAvailable"
+    },
+    {
+      "id": "36bb02aa-829b-5590-99a3-9cb275ad5323",
+      "name": "Installed application metadata and operating system",
+      "location": "urn:local:codex-appshot:2026-09-01:environment",
+      "kind": "local_observation",
+      "method": "Read application metadata and operating system version without changing settings."
+    },
+    {
+      "id": "1ad39407-f0ea-56f7-acca-3b18a3dd087b",
+      "name": "User-provided Appshot attachments",
+      "location": "urn:conversation:codex-appshot:2026-09-01:successful-controls",
+      "kind": "user_attachment",
+      "public_contents": "Application names, capture timestamps, and delivery flags only."
+    },
+    {
+      "id": "76f22dca-aa09-5757-8765-01b20ff71b54",
+      "name": "User-reported failing surfaces",
+      "location": "urn:conversation:codex-appshot:2026-09-01:failing-surfaces",
+      "kind": "user_statement",
+      "public_contents": "Standalone Chrome and embedded browser both reported failing; no private conversation copied."
+    }
+  ],
+  "environment": {
+    "id": "096626f0-80ba-538c-a3c4-b188a3cdee89",
+    "applications": [
+      {
+        "id": "3246885b-4bb3-5a40-89b9-b40c1f40a609",
+        "name": "Desktop",
+        "bundle_identifier": "com.openai.codex",
+        "version": "26.825.51511",
+        "build": "7377",
+        "source_id": "36bb02aa-829b-5590-99a3-9cb275ad5323"
+      },
+      {
+        "id": "dbc055a1-ab51-5e23-a2fd-8bed4aa400e7",
+        "name": "Computer Use helper",
+        "bundle_identifier": "com.openai.sky.CUAService",
+        "version": "26.828.1000919",
+        "build": "1000919",
+        "source_id": "36bb02aa-829b-5590-99a3-9cb275ad5323"
+      },
+      {
+        "id": "4a4ae374-e5a4-5e70-aec7-039dbedce4df",
+        "name": "Chrome",
+        "bundle_identifier": "com.google.Chrome",
+        "version": "152.0.7977.64",
+        "build": "7977.64",
+        "source_id": "36bb02aa-829b-5590-99a3-9cb275ad5323"
+      }
+    ],
+    "macos_version": "27.0",
+    "macos_build": "26A5416b",
+    "uname": "Darwin 27.0.0 arm64 arm",
+    "subscription": null,
+    "permissions": "not independently verified",
+    "loaded_helper_identity": "not independently verified"
+  },
+  "sample": {
+    "id": "fbaa3e5c-bb1f-5f39-b82a-3692c4100662",
+    "start_inclusive": "2026-08-31T15:47:00.000Z",
+    "end_inclusive": "2026-08-31T16:10:00.000Z",
+    "selection": "Appshot capture requests created and settled in the selected main log during this interval; joined locally by request identifier.",
+    "failure_count": 10,
+    "success_count": 19,
+    "successful_target_count": 16,
+    "replication": "User-driven retries corroborated by logs; no separate agent-operated capture test.",
+    "privacy": "All raw request identifiers, screenshots, captured text, window titles, browsing details, account data, and private file paths excluded."
+  },
+  "observations": [
+    {
+      "id": "0e33ed7d-1ea4-5085-a5d6-d35a6ef0be8c",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T15:47:06.710Z",
+      "source_line": 4099,
+      "created_at": "2026-08-31T15:47:06.366Z",
+      "created_source_line": 4087,
+      "target": "com.google.Chrome",
+      "elapsed_ms": 345,
+      "failure_reason": "start_request_failed:computer_use:-10005",
+      "had_accessibility_text": false,
+      "had_screenshot": false,
+      "status": "failed"
+    },
+    {
+      "id": "b9e73310-ffd9-5dfd-a56a-dd2763fe45a7",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T15:49:17.734Z",
+      "source_line": 4201,
+      "created_at": "2026-08-31T15:49:17.558Z",
+      "created_source_line": 4196,
+      "target": "com.google.Chrome",
+      "elapsed_ms": 175,
+      "failure_reason": "start_request_failed:computer_use:-10005",
+      "had_accessibility_text": false,
+      "had_screenshot": false,
+      "status": "failed"
+    },
+    {
+      "id": "d2cd5279-883d-5ee8-aa14-1a3cfc340f7d",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T15:49:25.446Z",
+      "source_line": 4212,
+      "created_at": "2026-08-31T15:49:25.274Z",
+      "created_source_line": 4207,
+      "target": "com.google.Chrome",
+      "elapsed_ms": 172,
+      "failure_reason": "start_request_failed:computer_use:-10005",
+      "had_accessibility_text": false,
+      "had_screenshot": false,
+      "status": "failed"
+    },
+    {
+      "id": "0c816400-fd7e-5dee-a3bd-cb076e18bec6",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T15:49:43.812Z",
+      "source_line": 4244,
+      "created_at": "2026-08-31T15:49:43.643Z",
+      "created_source_line": 4236,
+      "target": "com.google.Chrome",
+      "elapsed_ms": 168,
+      "failure_reason": "start_request_failed:computer_use:-10005",
+      "had_accessibility_text": false,
+      "had_screenshot": false,
+      "status": "failed"
+    },
+    {
+      "id": "10e5746d-a27b-5ce0-9fcc-4d5ea51bc712",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T15:50:01.183Z",
+      "source_line": 4269,
+      "created_at": "2026-08-31T15:50:01.028Z",
+      "created_source_line": 4264,
+      "target": "com.google.Chrome",
+      "elapsed_ms": 154,
+      "failure_reason": "start_request_failed:computer_use:-10005",
+      "had_accessibility_text": false,
+      "had_screenshot": false,
+      "status": "failed"
+    },
+    {
+      "id": "3a00c7dd-dff2-5554-ae8c-3e9fc504f37c",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T15:51:31.000Z",
+      "source_line": 4306,
+      "created_at": "2026-08-31T15:51:30.841Z",
+      "created_source_line": 4301,
+      "target": "com.google.Chrome",
+      "elapsed_ms": 159,
+      "failure_reason": "start_request_failed:computer_use:-10005",
+      "had_accessibility_text": false,
+      "had_screenshot": false,
+      "status": "failed"
+    },
+    {
+      "id": "265663e4-3e82-5b2b-8c3c-a0d00395375c",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T15:55:25.782Z",
+      "source_line": 4426,
+      "created_at": "2026-08-31T15:55:25.615Z",
+      "created_source_line": 4421,
+      "target": "com.google.Chrome",
+      "elapsed_ms": 166,
+      "failure_reason": "start_request_failed:computer_use:-10005",
+      "had_accessibility_text": false,
+      "had_screenshot": false,
+      "status": "failed"
+    },
+    {
+      "id": "50c3526d-08d7-5b8f-9a62-1f1f2f2b5f2b",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T15:55:38.188Z",
+      "source_line": 4440,
+      "created_at": "2026-08-31T15:55:38.013Z",
+      "created_source_line": 4435,
+      "target": "com.google.Chrome",
+      "elapsed_ms": 174,
+      "failure_reason": "start_request_failed:computer_use:-10005",
+      "had_accessibility_text": false,
+      "had_screenshot": false,
+      "status": "failed"
+    },
+    {
+      "id": "23408acd-e6a2-5018-9ada-9bfdd7089f12",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T15:55:53.549Z",
+      "source_line": 4460,
+      "created_at": "2026-08-31T15:55:53.376Z",
+      "created_source_line": 4455,
+      "target": "com.google.Chrome",
+      "elapsed_ms": 173,
+      "failure_reason": "start_request_failed:computer_use:-10005",
+      "had_accessibility_text": false,
+      "had_screenshot": false,
+      "status": "failed"
+    },
+    {
+      "id": "b8d0bbee-e3de-53db-a248-2142aed58d4b",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T15:56:53.059Z",
+      "source_line": 4487,
+      "created_at": "2026-08-31T15:56:51.466Z",
+      "created_source_line": 4476,
+      "target": "com.apple.finder",
+      "elapsed_ms": 1592,
+      "failure_reason": null,
+      "had_accessibility_text": true,
+      "had_screenshot": true,
+      "status": "success"
+    },
+    {
+      "id": "0817a7a7-d8b6-5890-8caa-cf262b59b474",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T15:57:01.639Z",
+      "source_line": 4501,
+      "created_at": "2026-08-31T15:57:00.402Z",
+      "created_source_line": 4492,
+      "target": "com.apple.finder",
+      "elapsed_ms": 1237,
+      "failure_reason": null,
+      "had_accessibility_text": true,
+      "had_screenshot": true,
+      "status": "success"
+    },
+    {
+      "id": "f4e57e50-a8ec-5e60-97a4-02a245758286",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T15:57:26.918Z",
+      "source_line": 4518,
+      "created_at": "2026-08-31T15:57:24.562Z",
+      "created_source_line": 4507,
+      "target": "com.apple.Notes",
+      "elapsed_ms": 2356,
+      "failure_reason": null,
+      "had_accessibility_text": true,
+      "had_screenshot": true,
+      "status": "success"
+    },
+    {
+      "id": "74983861-83dd-5ced-9a0b-6029ae9bcc24",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T15:58:17.907Z",
+      "source_line": 4548,
+      "created_at": "2026-08-31T15:58:16.782Z",
+      "created_source_line": 4537,
+      "target": "com.apple.reminders",
+      "elapsed_ms": 1124,
+      "failure_reason": null,
+      "had_accessibility_text": true,
+      "had_screenshot": true,
+      "status": "success"
+    },
+    {
+      "id": "7b2416c6-2926-5198-a7a2-3000b366c115",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T15:58:35.836Z",
+      "source_line": 4571,
+      "created_at": "2026-08-31T15:58:34.571Z",
+      "created_source_line": 4560,
+      "target": "com.apple.AppStore",
+      "elapsed_ms": 1263,
+      "failure_reason": null,
+      "had_accessibility_text": true,
+      "had_screenshot": true,
+      "status": "success"
+    },
+    {
+      "id": "80c57a19-ec42-58cd-b50b-df379d829b16",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T15:58:53.524Z",
+      "source_line": 4591,
+      "created_at": "2026-08-31T15:58:52.133Z",
+      "created_source_line": 4580,
+      "target": "com.brave.Browser",
+      "elapsed_ms": 1356,
+      "failure_reason": null,
+      "had_accessibility_text": true,
+      "had_screenshot": true,
+      "status": "success"
+    },
+    {
+      "id": "1dfda5a6-7082-5b86-984a-97d8be41bb41",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T15:59:19.140Z",
+      "source_line": 4608,
+      "created_at": "2026-08-31T15:59:17.737Z",
+      "created_source_line": 4597,
+      "target": "com.apple.Safari",
+      "elapsed_ms": 1403,
+      "failure_reason": null,
+      "had_accessibility_text": true,
+      "had_screenshot": true,
+      "status": "success"
+    },
+    {
+      "id": "4a5de740-c36c-591d-b6ec-ce778322623f",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T15:59:56.355Z",
+      "source_line": 4631,
+      "created_at": "2026-08-31T15:59:54.251Z",
+      "created_source_line": 4620,
+      "target": "com.hnc.Discord",
+      "elapsed_ms": 2103,
+      "failure_reason": null,
+      "had_accessibility_text": true,
+      "had_screenshot": true,
+      "status": "success"
+    },
+    {
+      "id": "2149953e-f5d0-5001-9ff9-170d3c79a159",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T16:01:20.308Z",
+      "source_line": 4717,
+      "created_at": "2026-08-31T16:01:18.561Z",
+      "created_source_line": 4704,
+      "target": "com.hnc.Discord",
+      "elapsed_ms": 1746,
+      "failure_reason": null,
+      "had_accessibility_text": true,
+      "had_screenshot": true,
+      "status": "success"
+    },
+    {
+      "id": "14ee3d8e-2883-5a86-90cb-562920662c66",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T16:03:51.463Z",
+      "source_line": 4781,
+      "created_at": "2026-08-31T16:03:51.115Z",
+      "created_source_line": 4770,
+      "target": "com.google.Chrome",
+      "elapsed_ms": 347,
+      "failure_reason": "start_request_failed:computer_use:-10005",
+      "had_accessibility_text": false,
+      "had_screenshot": false,
+      "status": "failed"
+    },
+    {
+      "id": "ef230644-df49-5482-9cbd-a4634066f233",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T16:04:40.981Z",
+      "source_line": 4837,
+      "created_at": "2026-08-31T16:04:39.498Z",
+      "created_source_line": 4826,
+      "target": "com.microsoft.VSCode",
+      "elapsed_ms": 1482,
+      "failure_reason": null,
+      "had_accessibility_text": true,
+      "had_screenshot": true,
+      "status": "success"
+    },
+    {
+      "id": "cdd51d4f-35eb-561f-a772-dc6c46fe1579",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T16:05:11.523Z",
+      "source_line": 4863,
+      "created_at": "2026-08-31T16:05:10.038Z",
+      "created_source_line": 4852,
+      "target": "com.spotify.client",
+      "elapsed_ms": 1485,
+      "failure_reason": null,
+      "had_accessibility_text": true,
+      "had_screenshot": true,
+      "status": "success"
+    },
+    {
+      "id": "6f6fc647-7923-5489-86c6-e6a7975900ac",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T16:05:29.753Z",
+      "source_line": 4879,
+      "created_at": "2026-08-31T16:05:28.308Z",
+      "created_source_line": 4868,
+      "target": "notion.id",
+      "elapsed_ms": 1444,
+      "failure_reason": null,
+      "had_accessibility_text": true,
+      "had_screenshot": true,
+      "status": "success"
+    },
+    {
+      "id": "a67ef7e6-b00c-5b09-bb58-937ce1004b75",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T16:06:54.610Z",
+      "source_line": 4899,
+      "created_at": "2026-08-31T16:06:53.328Z",
+      "created_source_line": 4888,
+      "target": "com.apple.Preview",
+      "elapsed_ms": 1281,
+      "failure_reason": null,
+      "had_accessibility_text": true,
+      "had_screenshot": true,
+      "status": "success"
+    },
+    {
+      "id": "3e506f11-ee5d-5b9a-ab2a-e3c1fccf4567",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T16:07:12.386Z",
+      "source_line": 4921,
+      "created_at": "2026-08-31T16:07:11.035Z",
+      "created_source_line": 4910,
+      "target": "com.apple.Terminal",
+      "elapsed_ms": 1351,
+      "failure_reason": null,
+      "had_accessibility_text": true,
+      "had_screenshot": true,
+      "status": "success"
+    },
+    {
+      "id": "2fd1b45c-dc17-542d-9661-853e43a625b8",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T16:07:25.114Z",
+      "source_line": 4938,
+      "created_at": "2026-08-31T16:07:23.958Z",
+      "created_source_line": 4927,
+      "target": "com.utmapp.UTM",
+      "elapsed_ms": 1156,
+      "failure_reason": null,
+      "had_accessibility_text": true,
+      "had_screenshot": true,
+      "status": "success"
+    },
+    {
+      "id": "7f03dbb4-9c1a-58ab-b779-aa50b4b4ec8a",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T16:08:40.939Z",
+      "source_line": 4971,
+      "created_at": "2026-08-31T16:08:39.673Z",
+      "created_source_line": 4959,
+      "target": "com.apple.systempreferences",
+      "elapsed_ms": 1265,
+      "failure_reason": null,
+      "had_accessibility_text": true,
+      "had_screenshot": true,
+      "status": "success"
+    },
+    {
+      "id": "96a349f5-7676-59d5-8b2f-61b301fb7e5f",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T16:09:07.970Z",
+      "source_line": 4991,
+      "created_at": "2026-08-31T16:09:05.900Z",
+      "created_source_line": 4980,
+      "target": "com.apple.iCal",
+      "elapsed_ms": 2069,
+      "failure_reason": null,
+      "had_accessibility_text": true,
+      "had_screenshot": true,
+      "status": "success"
+    },
+    {
+      "id": "9b8a1554-9fe0-53c9-b5c6-22dee8eb344e",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T16:09:33.546Z",
+      "source_line": 5009,
+      "created_at": "2026-08-31T16:09:32.387Z",
+      "created_source_line": 4998,
+      "target": "com.apple.iCal",
+      "elapsed_ms": 1159,
+      "failure_reason": null,
+      "had_accessibility_text": true,
+      "had_screenshot": true,
+      "status": "success"
+    },
+    {
+      "id": "9d0715a9-951d-509b-aeef-70f788e9242d",
+      "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0",
+      "observed_at": "2026-08-31T16:09:56.366Z",
+      "source_line": 5030,
+      "created_at": "2026-08-31T16:09:54.636Z",
+      "created_source_line": 5019,
+      "target": "dev.zed.Zed",
+      "elapsed_ms": 1728,
+      "failure_reason": null,
+      "had_accessibility_text": true,
+      "had_screenshot": true,
+      "status": "success"
+    }
+  ],
+  "delivered_controls": [
+    {
+      "id": "061fe575-9125-5214-8754-3c6cd746338a",
+      "name": "Finder",
+      "bundle_identifier": "com.apple.finder",
+      "attachment_timestamp": "2026-08-31T15:57:00.402Z",
+      "image_received": true,
+      "accessibility_text_received": true,
+      "source_id": "1ad39407-f0ea-56f7-acca-3b18a3dd087b"
+    },
+    {
+      "id": "619bc6c8-8b5b-542d-bb3c-b66fa5fe3e48",
+      "name": "Notes",
+      "bundle_identifier": "com.apple.Notes",
+      "attachment_timestamp": "2026-08-31T15:57:24.562Z",
+      "image_received": true,
+      "accessibility_text_received": true,
+      "source_id": "1ad39407-f0ea-56f7-acca-3b18a3dd087b"
+    },
+    {
+      "id": "0ddbc4a5-e6c8-5b69-81a3-6138ae74b2a7",
+      "name": "Reminders",
+      "bundle_identifier": "com.apple.reminders",
+      "attachment_timestamp": "2026-08-31T15:58:16.783Z",
+      "image_received": true,
+      "accessibility_text_received": true,
+      "source_id": "1ad39407-f0ea-56f7-acca-3b18a3dd087b"
+    },
+    {
+      "id": "1222fe04-40ab-5af4-a81e-ecfb8fcdb5f9",
+      "name": "App Store",
+      "bundle_identifier": "com.apple.AppStore",
+      "attachment_timestamp": "2026-08-31T15:58:34.572Z",
+      "image_received": true,
+      "accessibility_text_received": true,
+      "source_id": "1ad39407-f0ea-56f7-acca-3b18a3dd087b"
+    },
+    {
+      "id": "7753ed4a-2981-5b84-a213-c7e4e42f55b4",
+      "name": "Brave",
+      "bundle_identifier": "com.brave.Browser",
+      "attachment_timestamp": "2026-08-31T15:58:52.134Z",
+      "image_received": true,
+      "accessibility_text_received": true,
+      "source_id": "1ad39407-f0ea-56f7-acca-3b18a3dd087b"
+    },
+    {
+      "id": "7a0a689f-898f-5962-8b17-c09687262243",
+      "name": "Safari",
+      "bundle_identifier": "com.apple.Safari",
+      "attachment_timestamp": "2026-08-31T15:59:17.737Z",
+      "image_received": true,
+      "accessibility_text_received": true,
+      "source_id": "1ad39407-f0ea-56f7-acca-3b18a3dd087b"
+    },
+    {
+      "id": "6e5a3d52-5f02-52f2-a963-228f9d1f37fe",
+      "name": "Discord",
+      "bundle_identifier": "com.hnc.Discord",
+      "attachment_timestamp": "2026-08-31T16:01:18.562Z",
+      "image_received": true,
+      "accessibility_text_received": true,
+      "source_id": "1ad39407-f0ea-56f7-acca-3b18a3dd087b"
+    },
+    {
+      "id": "3127cc45-6278-524b-aad7-e9236afc0562",
+      "name": "Visual Studio Code",
+      "bundle_identifier": "com.microsoft.VSCode",
+      "attachment_timestamp": "2026-08-31T16:04:39.499Z",
+      "image_received": true,
+      "accessibility_text_received": true,
+      "source_id": "1ad39407-f0ea-56f7-acca-3b18a3dd087b"
+    },
+    {
+      "id": "dbec3a23-08d6-5d6d-8c24-191fcc62e297",
+      "name": "Spotify",
+      "bundle_identifier": "com.spotify.client",
+      "attachment_timestamp": "2026-08-31T16:05:10.038Z",
+      "image_received": true,
+      "accessibility_text_received": true,
+      "source_id": "1ad39407-f0ea-56f7-acca-3b18a3dd087b",
+      "limitation": "Accessibility output contained only minimal application structure; full text capture is not established."
+    },
+    {
+      "id": "9d96f0d3-5be0-5574-b7ed-5a6edfa99086",
+      "name": "Notion",
+      "bundle_identifier": "notion.id",
+      "attachment_timestamp": "2026-08-31T16:05:28.308Z",
+      "image_received": true,
+      "accessibility_text_received": true,
+      "source_id": "1ad39407-f0ea-56f7-acca-3b18a3dd087b"
+    },
+    {
+      "id": "e275d419-f858-5832-8f24-b358ddef79b9",
+      "name": "Preview",
+      "bundle_identifier": "com.apple.Preview",
+      "attachment_timestamp": "2026-08-31T16:06:53.329Z",
+      "image_received": true,
+      "accessibility_text_received": true,
+      "source_id": "1ad39407-f0ea-56f7-acca-3b18a3dd087b"
+    },
+    {
+      "id": "90044d57-f15d-5f60-906f-a084b8e2a38d",
+      "name": "Terminal",
+      "bundle_identifier": "com.apple.Terminal",
+      "attachment_timestamp": "2026-08-31T16:07:11.035Z",
+      "image_received": true,
+      "accessibility_text_received": true,
+      "source_id": "1ad39407-f0ea-56f7-acca-3b18a3dd087b"
+    },
+    {
+      "id": "650ef4a6-2b1c-5402-ba5c-6f75c421fdfa",
+      "name": "UTM",
+      "bundle_identifier": "com.utmapp.UTM",
+      "attachment_timestamp": "2026-08-31T16:07:23.958Z",
+      "image_received": true,
+      "accessibility_text_received": true,
+      "source_id": "1ad39407-f0ea-56f7-acca-3b18a3dd087b"
+    },
+    {
+      "id": "0aaca941-e07f-5a03-a7e4-0cf2501fa9ee",
+      "name": "System Settings",
+      "bundle_identifier": "com.apple.systempreferences",
+      "attachment_timestamp": "2026-08-31T16:08:39.673Z",
+      "image_received": true,
+      "accessibility_text_received": true,
+      "source_id": "1ad39407-f0ea-56f7-acca-3b18a3dd087b"
+    },
+    {
+      "id": "8111b8cc-49bc-538c-9d09-eda954492bed",
+      "name": "Calendar",
+      "bundle_identifier": "com.apple.iCal",
+      "attachment_timestamp": "2026-08-31T16:09:32.387Z",
+      "image_received": true,
+      "accessibility_text_received": true,
+      "source_id": "1ad39407-f0ea-56f7-acca-3b18a3dd087b"
+    },
+    {
+      "id": "17848541-e872-575c-b227-6e241f890f8d",
+      "name": "Zed",
+      "bundle_identifier": "dev.zed.Zed",
+      "attachment_timestamp": "2026-08-31T16:09:54.636Z",
+      "image_received": true,
+      "accessibility_text_received": true,
+      "source_id": "1ad39407-f0ea-56f7-acca-3b18a3dd087b",
+      "limitation": "Accessibility output contained only the window description; full text capture is not established."
+    }
+  ],
+  "claims": [
+    {
+      "id": "b0e4b3e4-1055-585c-80cf-d1dad0c230b6",
+      "status": "observed",
+      "text": "Ten Chrome-target requests failed before producing an image or accessibility text.",
+      "source_ids": [
+        "54232406-4ce4-5959-8973-f439bc7ad5a0",
+        "f563f519-df0b-579c-a78a-3791542b0449"
+      ]
+    },
+    {
+      "id": "826e8c08-1dc4-5781-9a7b-aed51effbbcb",
+      "status": "observed",
+      "text": "Sixteen other target applications produced an image and some accessibility data in the reviewed records and delivered attachments; text completeness was not established.",
+      "source_ids": [
+        "54232406-4ce4-5959-8973-f439bc7ad5a0",
+        "1ad39407-f0ea-56f7-acca-3b18a3dd087b"
+      ]
+    },
+    {
+      "id": "126d873d-9022-5af5-a921-0b6d2b6a4379",
+      "status": "user_reported",
+      "text": "Both standalone Chrome and embedded browser capture attempts were reported failing; all reviewed failure records name Chrome, so the embedded-browser path is not independently established.",
+      "source_ids": [
+        "76f22dca-aa09-5757-8765-01b20ff71b54",
+        "54232406-4ce4-5959-8973-f439bc7ad5a0"
+      ]
+    },
+    {
+      "id": "4ff3d028-dda5-520d-aa13-903616c97dae",
+      "status": "unconfirmed",
+      "text": "The error signature matches the closed Slack report, but a shared root cause or regression is not established.",
+      "source_ids": [
+        "28f5ee04-6a75-519b-a4c3-6a1cf1e6682e",
+        "f563f519-df0b-579c-a78a-3791542b0449"
+      ]
+    }
+  ],
+  "publication": {
+    "id": "f15450ed-7948-55bb-ba76-b7932d76697d",
+    "kind": "comment_on_existing_issue",
+    "repository": "openai/codex",
+    "issue_number": 36241,
+    "status": "verified",
+    "comment_id": 5481034022,
+    "url": "https://github.com/openai/codex/issues/36241#issuecomment-5481034022",
+    "body_file": "comment.md",
+    "body_sha256": "561447d59506aea35d1a76a6b2a5d8abce2e6cac799cd8498ddb4010f4862821",
+    "issue_state_before": "closed",
+    "shared_root_cause_confirmed": false,
+    "server_created_at": "2026-08-31T16:07:08Z",
+    "author": "Anionix",
+    "server_updated_at": "2026-08-31T16:12:19Z",
+    "verified_at": "2026-08-31T16:12:21.476Z",
+    "body_matches_readback": true
+  },
+  "fork": {
+    "id": "d2c2843d-57f7-5a11-91ef-e3420e197239",
+    "repository": "Anionix/codex_copy",
+    "branch": "codex/appshot-capture-report-20260901",
+    "base_commit": "9f42c89c0112771dc29100a6f3fc904049b2655f",
+    "files": [
+      "reports/appshot-capture-failure/comment.md",
+      "reports/appshot-capture-failure/publication.json",
+      "reports/appshot-capture-failure/validate.py"
+    ],
+    "pull_request_requested": false
+  },
+  "events": [
+    {
+      "id": "01a05892-18b4-761b-a322-5f4a3a4f853d",
+      "recorded_at": "2026-08-31T16:06:04.724Z",
+      "from": null,
+      "to": "reviewed"
+    },
+    {
+      "id": "01a05895-1c8d-7063-be64-b2323a463591",
+      "recorded_at": "2026-08-31T16:09:22.317Z",
+      "from": "reviewed",
+      "to": "published",
+      "server_created_at": "2026-08-31T16:07:08Z",
+      "comment_id": 5481034022,
+      "body_sha256": "99958ea4c71c66595168bf08c58a7ba6e2039874f7c3af016e0c8c1818c0b19d"
+    },
+    {
+      "id": "01a05895-1c8d-7063-be64-b233278d8dca",
+      "recorded_at": "2026-08-31T16:09:22.317Z",
+      "from": "published",
+      "to": "verified",
+      "verified_at": "2026-08-31T16:07:23.228Z",
+      "body_sha256": "99958ea4c71c66595168bf08c58a7ba6e2039874f7c3af016e0c8c1818c0b19d"
+    },
+    {
+      "id": "01a05895-1c8d-7063-be64-b234f694e901",
+      "recorded_at": "2026-08-31T16:09:22.317Z",
+      "from": "verified",
+      "to": "reviewed",
+      "reason": "Nine additional application attachments and the corresponding bounded log records were supplied."
+    },
+    {
+      "id": "01a05898-7e81-7234-8bdc-a46626e27ca4",
+      "recorded_at": "2026-08-31T16:13:04.001Z",
+      "from": "reviewed",
+      "to": "published",
+      "server_updated_at": "2026-08-31T16:12:19Z",
+      "comment_id": 5481034022,
+      "body_sha256": "561447d59506aea35d1a76a6b2a5d8abce2e6cac799cd8498ddb4010f4862821"
+    },
+    {
+      "id": "01a05898-7e81-7234-8bdc-a4675af4f22d",
+      "recorded_at": "2026-08-31T16:13:04.001Z",
+      "from": "published",
+      "to": "verified",
+      "verified_at": "2026-08-31T16:12:21.476Z",
+      "body_sha256": "561447d59506aea35d1a76a6b2a5d8abce2e6cac799cd8498ddb4010f4862821"
+    }
+  ]
+}
