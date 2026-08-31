@@ -1,0 +1,242 @@
+{
+  "schema_version": "1.0",
+  "type": "publication_record",
+  "description": "Sanitized English report of a desktop Health catalog failure. This record verifies publication, not product behavior.",
+  "report": {
+    "identity_name": "https://github.com/Anionix/codex_copy/blob/codex/health-catalog-report-20260901/reports/health-catalog-404/issue.md",
+    "title": "Desktop Health catalog entry fails to load with \"Plugin not found\" (404)",
+    "id": "2fa26d64-16c9-59f7-b216-97957bccfd22",
+    "body_sha256": "81214e024dcd9b476d5d64b023fe0142e9631cdfd7249b0b60e4f34aa2500c7a"
+  },
+  "fork": {
+    "repository": "Anionix/codex_copy",
+    "parent": "openai/codex",
+    "url": "https://github.com/Anionix/codex_copy",
+    "existing_fork_verified_at": "2026-08-31T15:09:33.221Z",
+    "new_fork_created": false,
+    "reuse_reason": "GitHub's fork page reported no available destinations and linked the existing fork.",
+    "main_before": "9f42c89c0112771dc29100a6f3fc904049b2655f",
+    "main_after": "9f42c89c0112771dc29100a6f3fc904049b2655f",
+    "branch": "codex/health-catalog-report-20260901",
+    "report_path": "reports/health-catalog-404/issue.md",
+    "report_commit": "b2beec9d6820078afb67f0412a0fe2ccdac39368"
+  },
+  "publication": {
+    "repository": "openai/codex",
+    "issue_url": "https://github.com/openai/codex/issues/41860",
+    "issue_number": 41860,
+    "created_at": "2026-08-31T15:11:54Z",
+    "state": "open",
+    "body_verified": true,
+    "requested_labels": [
+      "app"
+    ],
+    "observed_labels": [],
+    "label_note": "The requested app label was absent in the GitHub readback. No claim is made that it was applied.",
+    "method": "GitHub connector; body follows the current Codex App Bug template."
+  },
+  "sources": [
+    {
+      "identity_name": "https://github.com/openai/codex/blob/main/.github/ISSUE_TEMPLATE/1-codex-app.yml",
+      "title": "Official Codex App Bug template",
+      "access": "repository_file",
+      "blob_sha": "6e294ee27bc924fc2c68b743bad26260297d13f9",
+      "checked_on": "2026-09-01",
+      "id": "7572c204-00d5-57d3-b374-085045b865ae"
+    },
+    {
+      "identity_name": "https://github.com/openai/codex/blob/main/docs/contributing.md",
+      "title": "Official contribution guidance",
+      "access": "repository_file",
+      "checked_on": "2026-09-01",
+      "id": "e467b3fc-ebc4-54c6-8192-00871d5a75c0"
+    },
+    {
+      "identity_name": "https://learn.chatgpt.com/docs/reference/troubleshooting",
+      "title": "Official desktop troubleshooting",
+      "access": "page_text",
+      "checked_on": "2026-09-01",
+      "id": "8f190d09-c841-5889-95a6-6a3419f080a7"
+    },
+    {
+      "identity_name": "https://help.openai.com/en/articles/20001036-health-in-chatgpt",
+      "title": "Official Health availability documentation",
+      "access": "page_text",
+      "checked_on": "2026-09-01",
+      "id": "1344c399-b122-5969-a80e-b74a536c05a0"
+    },
+    {
+      "identity_name": "https://chatgpt.com/plugins/plugin_connector_1p_e569f8b8dfd08191903c9bd2cd7da9ac",
+      "title": "Health web catalog entry",
+      "access": "visible_text_and_link_attributes",
+      "observed_at": "2026-08-31T14:54:39.961Z",
+      "id": "78cfd296-0c29-5231-9922-b558bd8bdfdb"
+    },
+    {
+      "identity_name": "urn:health-catalog-404:supplied-screenshots:2026-08-31",
+      "title": "Reporter-supplied screenshots",
+      "access": "visually_reviewed",
+      "publicly_attached": false,
+      "reviewed_on": "2026-08-31",
+      "id": "855d1893-700e-5bd7-8837-495ff97ef184"
+    },
+    {
+      "identity_name": "urn:health-catalog-404:installed-app-metadata:2026-08-31",
+      "title": "Read-only local application and system inspection",
+      "access": "terminal_read",
+      "observed_at": "2026-08-31T14:47:39Z",
+      "id": "14f8d4a4-3c22-5d27-803f-8c901dbd697a"
+    },
+    {
+      "identity_name": "https://github.com/openai/codex/issues/41860",
+      "title": "Published issue readback",
+      "access": "github_issue_response",
+      "observed_at": "2026-08-31T15:14:33.243Z",
+      "id": "ff58336f-b057-5c95-b063-5ba206f5eeae"
+    }
+  ],
+  "claims": [
+    {
+      "identity_name": "urn:health-catalog-404:claim:desktop-failure",
+      "status": "observed_in_screenshots",
+      "statement": "The catalog offers Health and a detail view displays Plugin not found with status 404.",
+      "id": "80cd67d6-56a5-506f-9e16-ab8e4cd0225c",
+      "source_ids": [
+        "855d1893-700e-5bd7-8837-495ff97ef184"
+      ]
+    },
+    {
+      "identity_name": "urn:health-catalog-404:claim:internal-name",
+      "status": "observed_in_browser",
+      "statement": "The Health web launch link uses connector_openai_olympic. This does not prove successful connection.",
+      "id": "05e7c695-2498-5634-9e2b-308f7af4c7ce",
+      "source_ids": [
+        "78cfd296-0c29-5231-9922-b558bd8bdfdb"
+      ]
+    },
+    {
+      "identity_name": "urn:health-catalog-404:claim:report-routing",
+      "status": "documented",
+      "statement": "Official desktop guidance routes reports to openai/codex, whose current app template supplies the reporting fields.",
+      "id": "3b3e79de-e579-5e67-a8c4-c7e085531a96",
+      "source_ids": [
+        "7572c204-00d5-57d3-b374-085045b865ae",
+        "e467b3fc-ebc4-54c6-8192-00871d5a75c0",
+        "8f190d09-c841-5889-95a6-6a3419f080a7"
+      ]
+    },
+    {
+      "identity_name": "urn:health-catalog-404:claim:availability",
+      "status": "documented_with_limitations",
+      "statement": "Health documentation says Codex is unsupported. The original desktop mode and account eligibility are unverified.",
+      "id": "826e4b9d-0f47-5c67-9a6a-a68228712c59",
+      "source_ids": [
+        "1344c399-b122-5969-a80e-b74a536c05a0",
+        "855d1893-700e-5bd7-8837-495ff97ef184"
+      ]
+    },
+    {
+      "identity_name": "urn:health-catalog-404:claim:version",
+      "status": "observed_with_limitations",
+      "statement": "Installed metadata was checked; the original running application version and subscription were not established.",
+      "id": "30957dde-b7c6-5726-8551-48286d7ef028",
+      "source_ids": [
+        "855d1893-700e-5bd7-8837-495ff97ef184",
+        "14f8d4a4-3c22-5d27-803f-8c901dbd697a"
+      ]
+    },
+    {
+      "identity_name": "urn:health-catalog-404:claim:publication",
+      "status": "verified",
+      "statement": "GitHub returned an open issue with the exact reviewed body; labels were empty.",
+      "id": "75bbd989-4fca-5ecb-922c-9d77e492a1f6",
+      "source_ids": [
+        "ff58336f-b057-5c95-b063-5ba206f5eeae"
+      ]
+    }
+  ],
+  "duplicate_search": {
+    "checked_at": "2026-08-31T15:05:51Z",
+    "scope": "Public open and closed issues in openai/codex; limited to results reviewed.",
+    "matching_report_identified": false,
+    "incomplete_results": false,
+    "queries": [
+      {
+        "query": "repo:openai/codex is:issue \"connector_openai_olympic\"",
+        "total": 0,
+        "examined": 0
+      },
+      {
+        "query": "repo:openai/codex is:issue \"plugin_connector_1p_e569f8b8dfd08191903c9bd2cd7da9ac\"",
+        "total": 0,
+        "examined": 0
+      },
+      {
+        "query": "repo:openai/codex is:issue Health \"404\"",
+        "total": 18,
+        "examined": 18
+      },
+      {
+        "query": "repo:openai/codex is:issue \"unsupported\" \"plugins\"",
+        "total": 222,
+        "examined": 20
+      }
+    ],
+    "related_bodies_read": [
+      20009,
+      38574,
+      40903
+    ],
+    "limitations": "GitHub query matching is not an exact-string guarantee; no exhaustive or private tracker search is claimed."
+  },
+  "limitations": {
+    "fresh_reproduction": false,
+    "root_cause": "unconfirmed",
+    "original_running_version": "unconfirmed",
+    "subscription": "not_recorded",
+    "health_records_published": false,
+    "private_conversation_links_published": false,
+    "screenshots_published": false,
+    "raw_logs_published": false,
+    "code_fix_claimed": false
+  },
+  "machine_contract": "draft -> reviewed -> published -> verified. Verification requires matching remote text and an unchanged main branch; it does not establish reproduction or root cause.",
+  "events": [
+    {
+      "id": "01a05862-ef22-7521-846e-bd2baf4ae307",
+      "state": "draft",
+      "recorded_at": "2026-08-31T15:14:33.890Z",
+      "observed_at": null,
+      "recording_note": "Retrospective event record; observed_at is supplied only when the original timestamp is known."
+    },
+    {
+      "id": "01a05862-ef23-7eb0-addd-f12815dfcb25",
+      "state": "reviewed",
+      "recorded_at": "2026-08-31T15:14:33.891Z",
+      "observed_at": null,
+      "recording_note": "Retrospective event record; observed_at is supplied only when the original timestamp is known."
+    },
+    {
+      "id": "01a05862-ef24-7e8f-bfd2-c9d82253b44f",
+      "state": "published",
+      "recorded_at": "2026-08-31T15:14:33.892Z",
+      "observed_at": "2026-08-31T15:11:54Z",
+      "recording_note": "Retrospective event record; observed_at is supplied only when the original timestamp is known."
+    },
+    {
+      "id": "01a05862-ef25-7c7c-a8cd-9c87764a86a8",
+      "state": "verified",
+      "recorded_at": "2026-08-31T15:14:33.893Z",
+      "observed_at": null,
+      "recording_note": "Retrospective event record; observed_at is supplied only when the original timestamp is known."
+    }
+  ],
+  "generated_at": "2026-08-31T15:14:33.893Z",
+  "validation": {
+    "scope": "Publication record consistency only; separate GitHub reads verify remote state.",
+    "command": "python3 reports/health-catalog-404/validate_publication.py reports/health-catalog-404/issue.md reports/health-catalog-404/publication.json",
+    "positive_check": "passed",
+    "changed_body_check": "rejected because the saved body hash no longer matches",
+    "privacy_limit": "Pattern checks are supplementary; the report and receipt were also manually reviewed."
+  }
+}
