@@ -78,6 +78,13 @@
       "location": "urn:conversation:codex-appshot:2026-09-01:failing-surfaces",
       "kind": "user_statement",
       "public_contents": "Standalone Chrome and embedded browser both reported failing; no private conversation copied."
+    },
+    {
+      "id": "9a4b54ae-97dc-521d-bf3d-788f05480d67",
+      "name": "User-reported Codex self-capture failure",
+      "location": "urn:conversation:codex-appshot:2026-09-01:self-capture-failure",
+      "kind": "user_statement",
+      "public_contents": "User reports an error and no Appshot attachment when attempting to capture the Codex application itself."
     }
   ],
   "environment": {
@@ -718,6 +725,15 @@
         "28f5ee04-6a75-519b-a4c3-6a1cf1e6682e",
         "f563f519-df0b-579c-a78a-3791542b0449"
       ]
+    },
+    {
+      "id": "4bfdbe61-6f5a-5b02-a4b6-00b843980b89",
+      "status": "user_reported",
+      "text": "The user reports Codex self-capture failure; five subsequent no-target records stop before capture creation, without recording which application was intended. Their relationship to the Chrome failure or a documented self-capture restriction is unconfirmed.",
+      "source_ids": [
+        "9a4b54ae-97dc-521d-bf3d-788f05480d67",
+        "54232406-4ce4-5959-8973-f439bc7ad5a0"
+      ]
     }
   ],
   "publication": {
@@ -729,14 +745,14 @@
     "comment_id": 5481034022,
     "url": "https://github.com/openai/codex/issues/36241#issuecomment-5481034022",
     "body_file": "comment.md",
-    "body_sha256": "561447d59506aea35d1a76a6b2a5d8abce2e6cac799cd8498ddb4010f4862821",
+    "body_sha256": "d6d03c961227b6a6249588d5c4fc137a557e880662410cdef7c94728189bded2",
     "issue_state_before": "closed",
     "shared_root_cause_confirmed": false,
     "server_created_at": "2026-08-31T16:07:08Z",
     "author": "Anionix",
-    "server_updated_at": "2026-08-31T16:12:19Z",
-    "verified_at": "2026-08-31T16:12:21.476Z",
-    "body_matches_readback": true
+    "server_updated_at": "2026-08-31T16:23:37Z",
+    "body_matches_readback": true,
+    "verified_at": "2026-08-31T16:23:38.456Z"
   },
   "fork": {
     "id": "d2c2843d-57f7-5a11-91ef-e3420e197239",
@@ -797,6 +813,96 @@
       "to": "verified",
       "verified_at": "2026-08-31T16:12:21.476Z",
       "body_sha256": "561447d59506aea35d1a76a6b2a5d8abce2e6cac799cd8498ddb4010f4862821"
+    },
+    {
+      "id": "01a058a1-9342-77a8-940c-299935a6fad7",
+      "recorded_at": "2026-08-31T16:22:59.138Z",
+      "from": "verified",
+      "to": "reviewed",
+      "reason": "Add the separately reported Codex self-capture failure and five no-target observations without changing Chrome capture counts."
+    },
+    {
+      "id": "01a058a2-37d1-71f4-808b-97f858debebc",
+      "recorded_at": "2026-08-31T16:23:41.265Z",
+      "from": "reviewed",
+      "to": "published",
+      "server_updated_at": "2026-08-31T16:23:37Z",
+      "comment_id": 5481034022,
+      "body_sha256": "d6d03c961227b6a6249588d5c4fc137a557e880662410cdef7c94728189bded2"
+    },
+    {
+      "id": "01a058a2-37d1-71f4-808b-97f9ac776c68",
+      "recorded_at": "2026-08-31T16:23:41.265Z",
+      "from": "published",
+      "to": "verified",
+      "verified_at": "2026-08-31T16:23:38.456Z",
+      "body_sha256": "d6d03c961227b6a6249588d5c4fc137a557e880662410cdef7c94728189bded2"
+    }
+  ],
+  "followups": [
+    {
+      "id": "73209ead-b7e5-5883-9f49-f65aad81ea7b",
+      "name": "Codex self-capture attempt",
+      "user_reported_target": "Codex desktop application",
+      "target_association": "user_reported_not_independently_verified",
+      "stage": "target_selection",
+      "start_inclusive": "2026-08-31T16:20:39.000Z",
+      "end_inclusive": "2026-08-31T16:20:48.000Z",
+      "no_target_count": 5,
+      "capture_requests_created": 0,
+      "excluded_from_main_sample": true,
+      "self_capture_support": "unverified",
+      "source_ids": [
+        "9a4b54ae-97dc-521d-bf3d-788f05480d67",
+        "54232406-4ce4-5959-8973-f439bc7ad5a0"
+      ],
+      "observations": [
+        {
+          "id": "0811855b-bf6c-5279-b5ea-2dad35cb3ad2",
+          "observed_at": "2026-08-31T16:20:39.279Z",
+          "source_line": 5206,
+          "message": "Appshot shortcut had no target",
+          "frontmost_window_elapsed_ms": 11,
+          "selected_target": null,
+          "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0"
+        },
+        {
+          "id": "f98b9cda-0596-549b-a4db-0c4a97ba473d",
+          "observed_at": "2026-08-31T16:20:45.794Z",
+          "source_line": 5211,
+          "message": "Appshot shortcut had no target",
+          "frontmost_window_elapsed_ms": 6,
+          "selected_target": null,
+          "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0"
+        },
+        {
+          "id": "b834f3ae-e52b-5d4a-97e7-674845bd9ad6",
+          "observed_at": "2026-08-31T16:20:47.145Z",
+          "source_line": 5215,
+          "message": "Appshot shortcut had no target",
+          "frontmost_window_elapsed_ms": 6,
+          "selected_target": null,
+          "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0"
+        },
+        {
+          "id": "c698be58-ea8e-5fe4-97dd-20ad7c9dd8d6",
+          "observed_at": "2026-08-31T16:20:47.429Z",
+          "source_line": 5219,
+          "message": "Appshot shortcut had no target",
+          "frontmost_window_elapsed_ms": 7,
+          "selected_target": null,
+          "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0"
+        },
+        {
+          "id": "24706cfe-19e5-54d4-9341-5a84939d4380",
+          "observed_at": "2026-08-31T16:20:47.682Z",
+          "source_line": 5223,
+          "message": "Appshot shortcut had no target",
+          "frontmost_window_elapsed_ms": 10,
+          "selected_target": null,
+          "source_id": "54232406-4ce4-5959-8973-f439bc7ad5a0"
+        }
+      ]
     }
   ]
 }

@@ -38,6 +38,10 @@ status=failed
 
 The user reports failures when trying both standalone Chrome and ChatGPT's embedded browser. All ten reviewed failed requests name Chrome, so a separate embedded-browser failure path is not independently established. Window visibility and permissions were not independently verified for each attempt.
 
+**Separate follow-up: capturing Codex itself**
+
+The user also reports an error when trying to capture the Codex app itself. Between `16:20:39Z` and `16:20:48Z`, five hotkey attempts logged `Appshot shortcut had no target`, without creating a capture request. These records do not identify the target app, so their association with Codex itself is user-reported. This stops earlier than Chrome's capture-start failure; these five attempts are excluded from the table above. Whether self-capture is supported or intentionally excluded remains unverified.
+
 Expected: attach the frontmost window image and available text, as described in the [Appshots documentation](https://learn.chatgpt.com/docs/appshots). The successful comparisons narrow the failure, but do not rule out a permission or window-selection problem. No permission reset or application restart was performed during this investigation. Raw logs and attachments are omitted to protect private content.
 
 Could you advise whether this belongs to the same window-selection issue or should be tracked separately? Thank you.

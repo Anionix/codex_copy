@@ -76,6 +76,19 @@ for targets, count in re.findall(r"^\| (.*?) \| (\d+) success(?:es)?(?: each)? \
         table_names.append(name)
 require(len(table_names) == len(set(table_names)) and set(table_names) == set(names), "Comment target table differs")
 
+main_observations = {row["id"] for row in record["observations"]}
+for followup in record.get("followups", []):
+    require(followup["stage"] == "target_selection", "Unexpected follow-up stage")
+    require(followup["excluded_from_main_sample"] is True, "Follow-up must remain separate from capture counts")
+    require(followup["capture_requests_created"] == 0, "Follow-up reached capture creation")
+    require(followup["target_association"] == "user_reported_not_independently_verified", "Unsupported target attribution")
+    require(followup["self_capture_support"] == "unverified", "Unsupported self-capture policy claim")
+    require(len(followup["observations"]) == followup["no_target_count"], "Follow-up count differs")
+    for row in followup["observations"]:
+        require(row["id"] not in main_observations, "Follow-up counted twice")
+        require(followup["start_inclusive"] <= row["observed_at"] <= followup["end_inclusive"], "Follow-up outside window")
+        require(row["selected_target"] is None and row["message"] == "Appshot shortcut had no target", "Different follow-up signature")
+
 # machine_contract 97c0c633-d01f-5023-9868-f2939ac39ebd:
 # reviewed -> published -> verified; new evidence permits verified -> reviewed.
 # Verification here checks the receipt's consistency; live GitHub readback is separate.
